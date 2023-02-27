@@ -6,22 +6,6 @@ The aim of this project is to implement the efficient Direct Convolution algorit
 The main problem when performing convolutions in deep neural network is that, usually, those higly specialized algorithms trade space for time, incurring in an important memory overhead. The direct convolution could allow us to reduce the memory overhead while keeping performances high.
 
 
----
-**Table of contents**
-
-* [Tensor class](#tensor-class)
-  * [Attributes](#class-attributes)
-  * [Constructors](#class-constructors)
-  * [Operators-at](#operators-at)
-  * [Convolve threads](#convolve-threads)
-  * [Convolution](#convolution)
-* [Tests](#tests)
-* [Directory structure](#directory-structure)
-* [Documentation and references](#documentation-and-references)
-* [Info](#info)
-
----
-
 ## Tensor class
 
 The project is entirely base on the `Tensor` class, which allows us to handle 3D and 4D tensor. Those tensors will be used as input images and kernels for the convolution operation.
@@ -40,7 +24,7 @@ private:
    std::vector<uint32_t> shape;
    bool valid;
 ```
-![](/img/tensor_to_data.png)
+![](/img/conv.PNG)
 
 ### Class constructors
 
@@ -116,11 +100,11 @@ public:
 
 ## Tests
 
-### Speed-up: w.r.t. Naive impl. for different thread number
-![](/img/results1.png)
+### Performance of direct convolution against existing high performance FFT-based and SGEMM-based convolution implementations
+![](/img/results1.PNG)
 
-### Speed-up: w.r.t. Naive impl. for 8 threads and different inputs
-![](/img/results2.png)
+### Scaling behavior with increasing number of threads
+![](/img/results2.PNG)
 
 
 
